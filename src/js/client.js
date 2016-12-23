@@ -1,19 +1,11 @@
-import store from './store';
+import { createStore  } from 'redux';
+import reducers from './reducers/';
+import middlewares from './middleware/';
 import axios from "axios";
+
+const store = createStore(reducers, middlewares);
 
 store.dispatch({
   type: "FETCH_USERS",
   payload: axios.get("http://rest.learncode.academy/api/wstern/users")
 }); // async?
-
-// WITH TRUCK
-// store.dispatch((dispatch) => {
-//   dispatch({type: "FETCH_USERS_START"}) // syn process
-//   axios.get("http://rest.learncode.academy/api/wstern/users") // dynamic, can post to it too
-//     .then((res) => {
-//       dispatch({type: "RECIEVED_USERS", payload: res.data })
-//     })
-//     .catch((err) => {
-//       dispatch({type: "FETCH_USERS_ERROR", payload: err })
-//     })
-// }); // async?
