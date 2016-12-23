@@ -1,6 +1,6 @@
 import { createStore  } from 'redux';
 import reducers from './reducers/';
-import middlewares from './middleware/';
+import middlewares from './middlewares/';
 import axios from "axios";
 
 const store = createStore(reducers, middlewares);
