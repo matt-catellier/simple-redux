@@ -20,7 +20,7 @@ const userReducer = (state={initialState}, action) => {
         fetching: false,
         error: false,
         fetched: true,
-        users: action.payload
+        users: action.payload.data
       }
       break
     case "CHANGE_NAME":
