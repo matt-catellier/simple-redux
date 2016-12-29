@@ -1,10 +1,10 @@
-import { createStore  } from 'redux';
-import reducers from './reducers/';
-import middlewares from './middlewares/';
-import * as user from './actions/userActions';
-import { fetchTweets } from './actions/tweetActions';
+import React from "react"
+import ReactDOM from "react-dom"
+import { Provider } from "react-redux"
 
-const store = createStore(reducers, middlewares);
+import store from "./store"
+import Layout from './components/Layout';
 
-store.dispatch(user.fetchUsers()); // async
-store.dispatch(fetchTweets()); // async
+ReactDOM.render(<Provider store={store}>
+                  <Layout />
+                </Provider>, document.getElementById('app'));
